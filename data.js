@@ -2,7 +2,7 @@
  * Data from NYC Open Data Socroto Daytime Warming Shelters, altered with Google Refine
  */
 
-{
+var warmingShelterData {
   "rows" : [
     {
       "DFTAID" : "13V",
