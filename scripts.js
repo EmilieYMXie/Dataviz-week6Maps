@@ -11,23 +11,27 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	attribution : '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+/*
+ * Red circle for 110 Morningside Drive
+ */
 var circle = L.circle([40.81008, -73.95709], 500, {
 	color : 'red',
 	fillColor : '#f03',
 	fillOpacity : 0.5
 }).addTo(map);
 
-var warmingShelters = warmingSheltersData.rows;
+var warmingShelters = warmingShelterData.rows;
 
 for (var i = 0; i < warmingShelters.length; i++) {
+	var individualWarmingShelters = warmingShelters[i];
 	/*
 	 * Marker
 	 */
-	var marker = L.marker([40.81008, -73.95709]).addTo(map);
+	var marker = L.marker([individualWarmingShelters.Latitude, individualWarmingShelters.Longitude]).addTo(map);
 
 	/*
 	 * Popup
 	 */
-	marker.bindPopup("<b>University Apartment Housing</b><br>110 Morningside Drive.").openPopup();
+	marker.bindPopup("<b>"+individualWarmingShelters.FullAddress+"</b><br>"+individualWarmingShelters.ProgramName);//openPopup will open all popups .openPopup()
 }//end of for loop
 
